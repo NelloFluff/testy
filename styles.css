@@ -1,0 +1,29 @@
+/* Basic CSS reset to ensure consistency across different browsers */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the body element */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Styling the h1 element */
+h1 {
+    color: #0056b3;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling the p element */
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
