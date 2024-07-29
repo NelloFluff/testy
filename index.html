@@ -1,67 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Simple Firebase Chat</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <style>
-        #messages {
-            border: 1px solid #ccc;
-            height: 300px;
-            overflow-y: scroll;
-            margin-bottom: 10px;
-        }
-        #messageInput {
-            width: 80%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First HTML Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="chat">
-        <div id="messages"></div>
-        <input id="messageInput" type="text" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
 
 
 
-    <script type="module">
-        
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCTjNBHFQiMZQ2w-Ib02deuMGmr6RRA7Tw",
-    authDomain: "testy-b080b.firebaseapp.com",
-    projectId: "testy-b080b",
-    storageBucket: "testy-b080b.appspot.com",
-    messagingSenderId: "201544227519",
-    appId: "1:201544227519:web:86165a3e7b20228fb9040a",
-    measurementId: "G-03M1RV1L60"
-  };
-
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-        async function sendMessage() {
-            const message = document.getElementById('messageInput').value;
-            if (message.trim() === '') return; // Do nothing if the message is empty
-            await db.collection('messages').add({
-                text: message,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            document.getElementById('messageInput').value = ''; // Clear the input field
-        }
-        db.collection('messages').orderBy('timestamp').onSnapshot(snapshot => {
-            const messagesDiv = document.getElementById('messages');
-            messagesDiv.innerHTML = ''; // Clear the messages div
-            snapshot.forEach(doc => {
-                const message = doc.data().text;
-                messagesDiv.innerHTML += `<p>${message}</p>`;
-            });
-            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
-        });
-    </script>
 </body>
 </html>
